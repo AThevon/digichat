@@ -3,9 +3,11 @@
    import { db } from "../../firebase";
    import { collection, addDoc } from "firebase/firestore";
    import { ArrowLongRightIcon, BackspaceIcon } from "@heroicons/vue/24/solid";
+   import ButtonRadio from "./ButtonRadio.vue";
 
    export default defineComponent({
       components: {
+         ButtonRadio,
          BackspaceIcon,
          ArrowLongRightIcon,
       },
@@ -16,8 +18,10 @@
                description: "",
                importance: "low",
                subTasks: [],
+               created_at: new Date(),
             },
             newSubTask: "",
+            importances: ["low", "medium", "high"],
          };
       },
       methods: {
@@ -28,6 +32,7 @@
                   description: this.todo.description,
                   importance: this.todo.importance,
                   sub_tasks: this.todo.subTasks,
+                  created_at: this.todo.created_at,
                });
                console.log("Document written with ID: ", docRef.id);
                this.todo.label = "";
@@ -47,6 +52,9 @@
          },
          removeSubTask(index) {
             this.todo.subTasks.splice(index, 1);
+         },
+         updateImportance(newImportance) {
+            this.todo.importance = newImportance;
          },
       },
    });
@@ -73,58 +81,13 @@
       />
       <label for="importance" class="text-neutral-100">Importance</label>
       <div class="grid grid-cols-3 gap-2">
-         <label
-            class="flex items-center justify-center cursor-pointer rounded-2xl h-12"
-            :class="{
-               'bg-blue-500 text-white': todo.importance === 'low',
-               'bg-neutral-200 text-neutral-800': todo.importance !== 'low',
-            }"
-         >
-            <input
-               type="radio"
-               v-model="todo.importance"
-               value="low"
-               class="hidden"
-            />
-            <span
-               class="flex px-4 py-2 text-center rounded-md transition-all duration-150"
-               >Low
-            </span>
-         </label>
-         <label
-            class="flex items-center cursor-pointer"
-            :class="{
-               'bg-blue-500 text-white': todo.importance === 'medium',
-               'bg-neutral-200 text-neutral-800': todo.importance !== 'medium',
-            }"
-         >
-            <input
-               type="radio"
-               v-model="todo.importance"
-               value="medium"
-               class="hidden"
-            />
-            <span class="px-4 py-2 rounded-md transition-all duration-150"
-               >Medium</span
-            >
-         </label>
-         <label
-            class="flex items-center cursor-pointer"
-            :class="{
-               'bg-blue-500 text-white': todo.importance === 'high',
-               'bg-neutral-200 text-neutral-800': todo.importance !== 'high',
-            }"
-         >
-            <input
-               type="radio"
-               v-model="todo.importance"
-               value="high"
-               class="hidden"
-            />
-            <span class="px-4 py-2 rounded-md transition-all duration-150"
-               >High</span
-            >
-         </label>
+         <ButtonRadio
+            v-for="el in importances"
+            :key="el"
+            :importanceData="todo.importance"
+            :importance="el"
+            @update:importanceData="updateImportance"
+         />
       </div>
 
       <label for="subtask" class="text-neutral-100">Subtasks</label>
