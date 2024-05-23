@@ -24,7 +24,12 @@
    <label
       class="flex items-center justify-center cursor-pointer rounded-2xl h-12"
       :class="{
-         'bg-blue-500 text-white': importanceData === importance,
+         'bg-primary-300 text-neutral-800':
+            importanceData === importance && importanceData === 'low',
+         'bg-primary-500 text-neutral-800':
+            importanceData === importance && importanceData === 'medium',
+         'bg-primary-700 text-neutral-200':
+            importanceData === importance && importanceData === 'high',
          'bg-neutral-200 text-neutral-800': importanceData !== importance,
       }"
       @click="updateImportance"

@@ -11,7 +11,7 @@
 </script>
 
 <template>
-   <section class="min-h-screen bg-neutral-900 py-20 px-40">
+   <section class="min-h-screen bg-neutral-900 py-20 px-40 bg-gradient-to-br from-primary-700 to-neutral-950">
       <h2 class="text-neutral-100 text-center text-3xl font-bold uppercase mb-10">
          To do list
       </h2>

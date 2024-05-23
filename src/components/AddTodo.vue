@@ -20,8 +20,8 @@
                subTasks: [],
                created_at: new Date(),
             },
-            newSubTask: "",
             importances: ["low", "medium", "high"],
+            newSubTask: "",
          };
       },
       methods: {
@@ -46,7 +46,11 @@
          },
          addSubTask() {
             if (this.newSubTask) {
-               this.todo.subTasks.push(this.newSubTask);
+               this.todo.subTasks.push({
+                  label: this.newSubTask,
+                  done: false,
+                  created_at: new Date(),
+               });
                this.newSubTask = "";
             }
          },
@@ -70,22 +74,22 @@
          v-model="todo.label"
          id="label"
          placeholder="Enter a title"
-         class="text-neutral-800 rounded p-2"
+         class="text-neutral-200 bg-neutral-800 focus-visible:outline-none rounded p-2"
       />
       <label for="description" class="text-neutral-100">Description</label>
       <input
          v-model="todo.description"
          id="description"
          placeholder="Enter a description"
-         class="text-neutral-800 rounded p-2"
+         class="text-neutral-200 bg-neutral-800 rounded p-2"
       />
       <label for="importance" class="text-neutral-100">Importance</label>
       <div class="grid grid-cols-3 gap-2">
          <ButtonRadio
-            v-for="el in importances"
-            :key="el"
+            v-for="importance in importances"
+            :key="importance"
             :importanceData="todo.importance"
-            :importance="el"
+            :importance="importance"
             @update:importanceData="updateImportance"
          />
       </div>
@@ -95,7 +99,7 @@
          v-model="newSubTask"
          id="subtask"
          placeholder="Add a subtask"
-         class="text-neutral-800 rounded p-2"
+         class="text-neutral-200 bg-neutral-800 rounded p-2"
       />
       <button
          type="button"
@@ -111,7 +115,7 @@
             :key="index"
             class="flex justify-between items-center bg-neutral-300 text-neutral-700 p-2 rounded-md mb-1"
          >
-            {{ subTask }}
+            {{ subTask.label }}
             <button
                type="button"
                @click="removeSubTask(index)"
