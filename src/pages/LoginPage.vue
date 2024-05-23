@@ -27,7 +27,7 @@
 </script>
 
 <template>
-   <section class="flex flex-col w-full gap-4 min-h-screen">
+   <section class="flex flex-col w-full gap-4">
       <h2
          class="text-neutral-100 text-center text-3xl font-bold uppercase mb-12"
       >
@@ -41,7 +41,7 @@
          <input
             type="email"
             id="email"
-            class="mb-4 p-2 rounded-md bg-neutral-800 text-neutral-100 w-full"
+            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full"
             placeholder="johndoe@example.com"
             v-model="email"
          />
@@ -51,7 +51,7 @@
          <input
             type="password"
             id="password"
-            class="mb-4 p-2 rounded-md bg-neutral-800 text-neutral-100 w-full"
+            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full"
             placeholder="*******"
             v-model="password"
          />

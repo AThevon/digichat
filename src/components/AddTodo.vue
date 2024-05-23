@@ -67,21 +67,21 @@
 <template>
    <form
       @submit.prevent="addTodo"
-      class="flex flex-col gap-2 w-full max-w-[30rem]"
+      class="flex flex-col gap-2 w-full"
    >
       <label for="label" class="text-neutral-100">Title</label>
       <input
          v-model="todo.label"
          id="label"
          placeholder="Enter a title"
-         class="text-neutral-200 bg-neutral-800 focus-visible:outline-none rounded p-2"
+         class="text-neutral-200 bg-neutral-800 focus-visible:outline-none rounded-lg p-2"
       />
       <label for="description" class="text-neutral-100">Description</label>
       <input
          v-model="todo.description"
          id="description"
          placeholder="Enter a description"
-         class="text-neutral-200 bg-neutral-800 rounded p-2"
+         class="text-neutral-200 bg-neutral-800 rounded-lg p-2"
       />
       <label for="importance" class="text-neutral-100">Importance</label>
       <div class="grid grid-cols-3 gap-2">
@@ -99,7 +99,7 @@
          v-model="newSubTask"
          id="subtask"
          placeholder="Add a subtask"
-         class="text-neutral-200 bg-neutral-800 rounded p-2"
+         class="text-neutral-200 bg-neutral-800 rounded-lg p-2"
       />
       <button
          type="button"

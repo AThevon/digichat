@@ -21,6 +21,6 @@
    <main
       class="min-h-screen text-neutral-50 bg-neutral-900 py-20 px-40 bg-gradient-to-br from-primary-700 to-neutral-950"
    >
-      <router-view></router-view>
+      <RouterView></RouterView>
    </main>
 </template>

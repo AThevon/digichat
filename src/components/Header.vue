@@ -66,8 +66,8 @@
             <li v-for="link in filteredLinks" :key="link.name">
                <RouterLink
                   :to="link.path"
-                  class="hover:text-primary-500 transition-all"
-                  active-class="text-primary-500 cursor-default"
+                  class="text-primary-400 hover:text-primary-500 transition-all"
+                  active-class="!text-primary-100 cursor-default"
                >
                   {{ link.name }}
                </RouterLink>
