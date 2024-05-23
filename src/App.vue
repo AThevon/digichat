@@ -1,23 +1,26 @@
 <script>
-   import AddTodo from "@/components/AddTodo.vue";
-   import GetTodos from "@/components/GetTodos.vue";
+   import Header from "./components/Header.vue";
+   import { RouterView } from "vue-router";
 
    export default {
+      name: "App",
+      setup() {
+         return {
+            title: "DigiChat",
+         };
+      },
       components: {
-         AddTodo,
-         GetTodos,
+         Header,
+         RouterView,
       },
    };
 </script>
 
 <template>
-   <section class="min-h-screen bg-neutral-900 py-20 px-40 bg-gradient-to-br from-primary-700 to-neutral-950">
-      <h2 class="text-neutral-100 text-center text-3xl font-bold uppercase mb-10">
-         To do list
-      </h2>
-      <div class="flex gap-4">
-         <AddTodo />
-         <GetTodos />
-      </div>
-   </section>
+   <Header />
+   <main
+      class="min-h-screen text-neutral-50 bg-neutral-900 py-20 px-40 bg-gradient-to-br from-primary-700 to-neutral-950"
+   >
+      <router-view></router-view>
+   </main>
 </template>
