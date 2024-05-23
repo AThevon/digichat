@@ -1,10 +1,14 @@
 <script>
    import { auth } from "../../firebase";
    import { createUserWithEmailAndPassword } from "firebase/auth";
+   import { db } from "../../firebase";
+   import { setDoc, doc } from "firebase/firestore";
 
    export default {
       data() {
          return {
+            firstName: "",
+            lastName: "",
             email: "",
             password: "",
          };
@@ -12,11 +16,18 @@
       methods: {
          async signUp() {
             try {
-               await createUserWithEmailAndPassword(
+               const userCredential = await createUserWithEmailAndPassword(
                   auth,
                   this.email,
                   this.password
                );
+               const user = userCredential.user;
+
+               await setDoc(doc(db, "users", user.uid), {
+                  first_name: this.firstName,
+                  last_name: this.lastName,
+                  email: this.email,
+               });
                this.$router.push("/");
             } catch (error) {
                console.error(error);
@@ -37,6 +48,26 @@
          class="flex flex-col w-full max-w-[20rem] mx-auto"
          @submit.prevent="signUp"
       >
+         <label for="firstName" class="ml-2 mb-1 text-neutral-100">
+            First Name
+         </label>
+         <input
+            type="text"
+            id="firstName"
+            class="mb-4 p-2 rounded-md bg-neutral-800 text-neutral-100 w-full"
+            placeholder="John"
+            v-model="firstName"
+         />
+         <label for="lastName" class="ml-2 mb-1 text-neutral-100">
+            Last Name
+         </label>
+         <input
+            type="text"
+            id="lastName"
+            class="mb-4 p-2 rounded-md bg-neutral-800 text-neutral-100 w-full"
+            placeholder="Doe"
+            v-model="lastName"
+         />
          <label for="email" class="ml-2 mb-1 text-neutral-100"> Email </label>
          <input
             type="email"
@@ -59,9 +90,10 @@
             type="submit"
             class="bg-primary-500 text-neutral-100 p-2 rounded-md transition-all hover:bg-primary-600 active:scale-[0.98]"
             :class="{
-               'cursor-not-allowed !bg-neutral-600': !email || !password,
+               'cursor-not-allowed !bg-neutral-600':
+                  !firstName || !lastName || !email || !password,
             }"
-            :disabled="!email || !password"
+            :disabled="!firstName || !lastName || !email || !password"
          >
             Sign Up
          </button>
