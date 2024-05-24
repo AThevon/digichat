@@ -1,29 +1,41 @@
-# digichat
+# DigiChat Project
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to the DigiChat project! This project is a Vue 3 application that leverages the optional API setup. It includes:
 
-## Recommended IDE Setup
+-  **Styling**: TailwindCSS
+-  **Animations**: VueUse Motion
+-  **Backend**: Firebase
+   -  **Authentication**
+   -  **Firestore**: For database storage
+   -  **Storage**: For managing user profile pictures
+-  **Features**:
+   -  User authentication
+   -  Global chat feature
+   -  Todo list with tasks and subtasks
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Table of Contents
 
-## Customize configuration
+-  [Features](#features)
+-  [Technologies](#technologies)
+-  [Usage](#usage)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Features
 
-## Project Setup
+-  **User Authentication**: Users can sign up or log in to access the application.
+-  **Global Chat**: Authenticated users can participate in a global chat.
+-  **Todo List**: Users can manage tasks and subtasks in a todo list.
+-  **Profile Picture Upload**: Users can upload and display profile pictures.
 
-```sh
-yarn
-```
+## Technologies
 
-### Compile and Hot-Reload for Development
+-  **Vue 3**: The core framework used for building the application.
+-  **TailwindCSS**: Utility-first CSS framework for styling.
+-  **VueUse Motion**: For animations and transitions.
+-  **Firebase**: Used for authentication and storage.
+   -  **Firestore**: For storing chat messages and todo items.
+   -  **Storage**: For managing user profile pictures.
+-  **Vue Router**: For managing navigation between pages.
 
-```sh
-yarn dev
-```
+## Usage
 
-### Compile and Minify for Production
-
-```sh
-yarn build
-```
+Go to this link to see the result
