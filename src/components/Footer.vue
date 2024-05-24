@@ -6,9 +6,9 @@
 </script>
 
 <template>
-   <footer class="px-4">
+   <footer class="xl:fixed xl:bottom-2 w-full px-4">
       <p class="text-center xl:text-end py-8 xl:py-0 text-neutral-500">
-         &copy; 2021 DigiChat
+         &copy; 2024 DigiChat
       </p>
    </footer>
 </template>

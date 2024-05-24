@@ -9,7 +9,7 @@ html {
 
 body {
    background: linear-gradient(to bottom right, #5e2bd4, #0a0a0a);
-   min-height: 100vh;
+   min-height: 100dvh;
 }
 
 @layer utilities {

@@ -13,14 +13,14 @@
       components: {
          Header,
          RouterView,
-        Footer,
+         Footer,
       },
    };
 </script>
 
 <template>
    <Header />
-   <main class="text-neutral-50 xl:py-20 px-4 md:px-20 xl:px-40 h-full">
+   <main class="text-neutral-50 xl:py-20 px-4 md:px-20 xl:px-40">
       <RouterView></RouterView>
    </main>
    <Footer />
