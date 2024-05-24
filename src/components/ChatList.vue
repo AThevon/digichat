@@ -67,7 +67,7 @@
             v-motion
             :initial="{ y: -100 }"
             :enter="{ y: 0 }"
-            class="transition ease-out duration-200"
+            class="transition ease-out duration-200 break-words w-full"
          >
             <ChatLine
                :userName="chat.userName"

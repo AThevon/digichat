@@ -58,6 +58,6 @@
             <p>{{ formatTime(created_at) }}</p>
          </div>
       </div>
-      <p class="px-2">{{ content }}</p>
+      <p class="px-2 break-all">{{ content }}</p>
    </div>
 </template>

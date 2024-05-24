@@ -78,7 +78,6 @@
    <header
       class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-8"
    >
-      <h1 class="hidden text-2xl font-bold font-secondary">DigiChat</h1>
       <img
          src="@/assets/logo.png"
          alt="DigiChat Logo"

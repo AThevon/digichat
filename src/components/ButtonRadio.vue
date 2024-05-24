@@ -41,7 +41,7 @@
          class="hidden"
       />
       <span
-         class="flex px-4 py-2 text-center rounded-md transition-all duration-150 capitalize"
+         class="flex px-4 py-2 text-center rounded-md transition-all duration-150 font-medium capitalize"
          >{{ importance }}
       </span>
    </label>

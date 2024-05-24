@@ -194,7 +194,7 @@
 </script>
 
 <template>
-   <ul class="flex flex-col gap-2 w-full">
+   <ul v-if="getItems.length" class="flex flex-col gap-2 w-full">
       <li
          v-for="item in getItems"
          :key="item.id"
@@ -263,4 +263,11 @@
          </button>
       </li>
    </ul>
-</template>../firebase
+   <div v-else class="rounded-lg bg-neutral-950 bg-opacity-40 h-[40rem] w-full border-dashed border-2 border-primary-700/40 flex items-center justify-center"> 
+
+      <p class="flex items-center justify-center h-full text-neutral-400">
+         The tasks will be here !
+      </p>
+   </div>
+</template>
+../firebase

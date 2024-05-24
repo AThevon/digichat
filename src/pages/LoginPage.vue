@@ -36,10 +36,10 @@
 
 <template>
    <section class="flex flex-col w-full gap-4">
-    <div class="flex flex-col items-center justify-center mb-8">
-      <h1 class="font-bold text-3xl uppercase" >DigiChat</h1>
-      <img src="@/assets/logo.png" alt="Login" class="w-40 h-40 mx-auto" />
-    </div>
+      <div class="flex flex-col items-center justify-center mb-8">
+         <h1 class="font-bold text-3xl uppercase font-secondary">DigiChat</h1>
+         <img src="@/assets/logo.png" alt="Login" class="w-40 h-40 mx-auto" />
+      </div>
       <h2
          class="text-neutral-100 text-center text-3xl font-bold uppercase mb-5"
       >
