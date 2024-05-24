@@ -20,7 +20,8 @@
          },
       },
       methods: {
-         formatDate(date) {
+         formatDate(dateString) {
+            const date = new Date(dateString);
             const dateOptions = {
                weekday: "short",
                day: "2-digit",
@@ -28,7 +29,8 @@
             };
             return date.toLocaleDateString([], dateOptions);
          },
-         formatTime(date) {
+         formatTime(dateString) {
+            const date = new Date(dateString);
             const timeOptions = { hour: "2-digit", minute: "2-digit" };
             return date.toLocaleTimeString([], timeOptions);
          },
@@ -45,7 +47,7 @@
             <img
                :src="userPhotoUrl"
                alt="User Photo"
-               class="w-6 h-6 rounded-full object-contain"
+               class="w-6 h-6 rounded-full object-cover"
             />
             <h3 class="text-neutral-400 font-medium">
                {{ userName.firstName }}

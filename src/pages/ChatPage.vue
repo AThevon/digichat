@@ -55,7 +55,7 @@
       Welcome, {{ user.firstName }} !
    </h2>
    <h2 v-else class="text-center text-2xl font-bold">Welcome !</h2>
-   <section class="grid grid-cols-[3fr_2fr] gap-4 px-20 max-w-[80rem] mx-auto">
+   <section class="grid xl:grid-cols-[3fr_2fr] gap-4 xl:px-20 max-w-[80rem] mx-auto">
       <div class="flex flex-col w-full">
          <ChatList :currentUser="user" />
          <ChatForm />

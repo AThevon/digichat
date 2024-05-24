@@ -40,32 +40,20 @@ const router = createRouter({
    routes,
 });
 
-let isAuthChecked = false;
-
 router.beforeEach((to, from, next) => {
-   if (!isAuthChecked) {
+   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+   if (requiresAuth) {
+      // Delay navigation until the authentication state is checked
       onAuthStateChanged(auth, (user) => {
-         isAuthChecked = true;
-         const requiresAuth = to.matched.some(
-            (record) => record.meta.requiresAuth
-         );
-         if (requiresAuth && !user) {
-            next("/login");
-         } else {
+         if (user) {
             next();
+         } else {
+            next("/login");
          }
       });
    } else {
-      const requiresAuth = to.matched.some(
-         (record) => record.meta.requiresAuth
-      );
-      const currentUser = auth.currentUser;
-
-      if (requiresAuth && !currentUser) {
-         next("/login");
-      } else {
-         next();
-      }
+      next();
    }
 });
 

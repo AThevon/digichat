@@ -16,6 +16,7 @@
             totalMessages: 0,
             totalUsers: 0,
             bestChatters: [],
+            totalParticipants: 0,
          };
       },
       async created() {

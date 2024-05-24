@@ -78,7 +78,12 @@
    <header
       class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-8"
    >
-      <h1 class="text-2xl font-bold">DigiChat</h1>
+      <h1 class="hidden text-2xl font-bold font-secondary">DigiChat</h1>
+      <img
+         src="@/assets/logo.png"
+         alt="DigiChat Logo"
+         class="h-12 w-12 object-contain rounded-lg"
+      />
       <nav>
          <ul class="flex gap-4 items-center">
             <li v-for="link in filteredLinks" :key="link.name">
@@ -96,6 +101,7 @@
                   :src="photoURL"
                   alt="User Photo"
                   class="w-10 h-10 rounded-full object-contain"
+                  @click="updatePhoto"
                />
                <button
                   @click="logout"

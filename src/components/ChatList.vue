@@ -33,7 +33,7 @@
                   },
                   userPhotoUrl: data.user_photo_url,
                   content: data.content,
-                  created_at: data.created_at.toDate(),
+                  created_at: data.created_at.toDate().toISOString(), // Convert Date to ISO string
                };
             });
             scrollToBottom();
@@ -47,7 +47,9 @@
       },
       computed: {
          sortedChats() {
-            return this.chats.sort((a, b) => a.created_at - b.created_at);
+            return this.chats.sort(
+               (a, b) => new Date(a.created_at) - new Date(b.created_at)
+            );
          },
       },
    });
