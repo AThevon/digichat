@@ -1,6 +1,7 @@
 <script>
    import { defineComponent } from "vue";
-   import { db } from "../../firebase";
+   import { db, auth } from "../../firebase";
+   import { onAuthStateChanged } from "firebase/auth";
    import {
       collection,
       doc,
@@ -174,20 +175,27 @@
          },
       },
       created() {
-         const colRef = collection(db, "to_do");
-         onSnapshot(colRef, (querySnapshot) => {
-            this.items = querySnapshot.docs.map((doc) => {
-               const data = doc.data();
-               return {
-                  id: doc.id,
-                  label: data.label,
-                  description: data.description,
-                  subTasks: data.sub_tasks || [],
-                  importance: data.importance || "low",
-                  done: data.done || false,
-                  created_at: data.created_at,
-               };
-            });
+         onAuthStateChanged(auth, (user) => {
+            if (user) {
+               this.user = user;
+               const colRef = collection(db, "to_do");
+               onSnapshot(colRef, (querySnapshot) => {
+                  this.items = querySnapshot.docs.map((doc) => {
+                     const data = doc.data();
+                     return {
+                        id: doc.id,
+                        label: data.label,
+                        description: data.description,
+                        subTasks: data.sub_tasks || [],
+                        importance: data.importance || "low",
+                        done: data.done || false,
+                        created_at: data.created_at,
+                     };
+                  });
+               });
+            } else {
+               console.log("User not authenticated");
+            }
          });
       },
    });
@@ -263,8 +271,10 @@
          </button>
       </li>
    </ul>
-   <div v-else class="rounded-lg bg-neutral-950 bg-opacity-40 h-[40rem] w-full border-dashed border-2 border-primary-700/40 flex items-center justify-center"> 
-
+   <div
+      v-else
+      class="rounded-lg bg-neutral-950 bg-opacity-40 h-[40rem] w-full border-dashed border-2 border-primary-700/40 flex items-center justify-center"
+   >
       <p class="flex items-center justify-center h-full text-neutral-400">
          The tasks will be here !
       </p>

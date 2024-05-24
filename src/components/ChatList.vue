@@ -59,7 +59,7 @@
    <div ref="chatList">
       <ul
          ref="chatListRef"
-         class="custom-scrollbar opacity-100 flex flex-col gap-1 w-full h-[55vh] overflow-auto pr-1"
+         class="custom-scrollbar opacity-100 flex flex-col gap-1 w-full h-[55vh] overflow-auto px-1"
          :class="{
             'shadow-inner-top': chats.length > 4,
             'opacity-0': !chats.length,
@@ -71,7 +71,7 @@
             v-motion
             :initial="{ y: -100 }"
             :enter="{ y: 0 }"
-            class="transition ease-out duration-200 break-words w-full"
+            class="transition ease-out duration-200 w-full"
          >
             <ChatLine
                :userName="chat.userName"

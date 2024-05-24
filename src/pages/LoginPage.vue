@@ -41,7 +41,7 @@
          <img src="@/assets/logo.png" alt="Login" class="w-40 h-40 mx-auto" />
       </div>
       <h2
-         class="text-neutral-100 text-center text-3xl font-bold font-sans uppercase mb-5"
+         class="text-neutral-100 text-center text-3xl font-bold font-sans uppercase"
       >
          Login
       </h2>

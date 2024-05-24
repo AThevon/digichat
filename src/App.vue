@@ -1,5 +1,6 @@
 <script>
    import Header from "./components/Header.vue";
+   import Footer from "./components/Footer.vue";
    import { RouterView } from "vue-router";
 
    export default {
@@ -12,13 +13,15 @@
       components: {
          Header,
          RouterView,
+        Footer,
       },
    };
 </script>
 
 <template>
    <Header />
-   <main class="min-h-screen text-neutral-50 xl:py-20 px-4 md:px-20 xl:px-40">
+   <main class="text-neutral-50 xl:py-20 px-4 md:px-20 xl:px-40 h-full">
       <RouterView></RouterView>
    </main>
+   <Footer />
 </template>

@@ -58,7 +58,7 @@
 
 <template>
    <div
-      class="flex flex-col gap-4 p-4 bg-neutral-800 rounded-2xl shadow-md w-full"
+      class="flex flex-col mt-4 xl:mt-0 gap-4 p-4 bg-neutral-800 rounded-2xl shadow-md w-full"
    >
       <h2 class="text-neutral-200 text-center uppercase font-bold">
          Chat Stats

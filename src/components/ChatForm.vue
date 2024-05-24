@@ -116,7 +116,7 @@
 <template>
    <form
       @submit.prevent="sendMessage"
-      class="flex flex-col w-full mt-5 xl:mt-1 pr-3"
+      class="flex flex-col w-full mt-5 xl:mt-1 px-3"
    >
       <textarea
          v-model="message"
