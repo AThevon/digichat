@@ -59,7 +59,11 @@
    <div ref="chatList">
       <ul
          ref="chatListRef"
-         class="flex flex-col gap-1 w-full h-[55vh] overflow-auto"
+         class="custom-scrollbar opacity-100 flex flex-col gap-1 w-full h-[55vh] overflow-auto pr-1"
+         :class="{
+            'shadow-inner-top': chats.length > 4,
+            'opacity-0': !chats.length,
+         }"
       >
          <li
             v-for="chat in sortedChats"

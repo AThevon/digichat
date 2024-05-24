@@ -66,7 +66,7 @@
 </script>
 
 <template>
-   <form @submit.prevent="addTodo" class="flex flex-col gap-2 w-full">
+   <form @submit.prevent="addTodo" class="flex flex-col gap-2 w-full mx-auto max-w-[30rem] xl:max-w-full">
       <label for="label" class="text-neutral-100">Title</label>
       <input
          v-model="todo.label"

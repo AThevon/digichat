@@ -76,7 +76,7 @@
 
 <template>
    <header
-      class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-4"
+      class="xl:fixed text-neutral-100 h-20 w-full flex items-center justify-between px-4"
    >
       <img
          src="@/assets/logo.png"

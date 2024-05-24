@@ -15,7 +15,6 @@
       },
       data() {
          return {
-            title: "",
             user: {
                id: "",
                firstName: "",
@@ -51,15 +50,11 @@
 </script>
 
 <template>
-   <h2
-      v-if="user.firstName"
-      class="text-center text-2xl mb-10 font-bold font-sans"
-   >
-      Welcome, {{ user.firstName }} !
+   <h2 class="text-center text-2xl font-bold font-sans">
+      {{ user.firstName ? `${user.firstName}'s chat` : "Loading..." }}
    </h2>
-   <h2 v-else class="text-center text-2xl font-bold font-sans">Welcome !</h2>
    <section
-      class="grid xl:grid-cols-[3fr_2fr] gap-4 xl:px-20 max-w-[80rem] xl:min-h-[40rem] mx-auto"
+      class="grid xl:grid-cols-[3fr_2fr] gap-2 xl:px-20 max-w-[80rem] xl:min-h-[40rem] mt-10 mx-auto"
    >
       <div class="flex flex-col w-full">
          <ChatList :currentUser="user" />

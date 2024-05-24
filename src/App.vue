@@ -18,9 +18,7 @@
 
 <template>
    <Header />
-   <main
-      class="min-h-screen text-neutral-50 bg-neutral-900 py-20 px-4 md:px-20 xl:px-40 bg-gradient-to-br from-primary-700 to-neutral-950"
-   >
+   <main class="min-h-screen text-neutral-50 xl:py-20 px-4 md:px-20 xl:px-40">
       <RouterView></RouterView>
    </main>
 </template>

@@ -18,7 +18,7 @@
       >
          To do list
       </h2>
-      <div class="grid grid-cols-[1fr_1fr] gap-4 px-20 max-w-[80rem] mx-auto">
+      <div class="grid xl:grid-cols-[1fr_1fr] gap-4 px-20 max-w-[80rem] mx-auto">
          <AddTodo />
          <GetTodos />
       </div>
