@@ -77,13 +77,29 @@
             <li
                v-for="(chatter, index) in bestChatters"
                :key="chatter.uid"
-               class="text-neutral-200 text-center bg-neutral-700 font-medium p-2 rounded-lg"
+               class="relative text-neutral-200 text-center bg-neutral-700 font-medium p-2 flex items-center justify-center gap-2 rounded-lg"
                :class="{
-                  '!bg-primary-500': index === 0,
+                  '!bg-primary-500 flex-col': index === 0,
                }"
             >
-               {{ chatter.first_name }}:
-               <span class="font-bold"> {{ chatter.message_count }}</span>
+               <img
+                  v-if="index === 0"
+                  src="@/assets/crown.png"
+                  alt="Crown"
+                  class="absolute -top-3 left-[49%] -translate-x-1/2 -rotate-6 w-7 h-7"
+               />
+               <img
+                  :src="chatter.photo_url"
+                  alt="User Photo"
+                  class="w-7 h-7 rounded-full object-cover"
+                  :class="{
+                     '!w-12 !h-12': index === 0,
+                  }"
+               />
+               <p>
+                  {{ chatter.first_name }}:
+                  <span class="font-bold"> {{ chatter.message_count }}</span>
+               </p>
             </li>
          </ul>
       </div>

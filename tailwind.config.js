@@ -5,7 +5,7 @@ export default {
       extend: {
         fontFamily: {
           sans: ['Montserrat', 'sans-serif'],
-          secondary: ['Poppins', 'sans-serif'],
+          primary: ['Chakra Petch', 'sans-serif'],
         },
          colors: {
             primary: {

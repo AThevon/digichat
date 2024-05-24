@@ -101,7 +101,7 @@
 <template>
    <section class="flex flex-col w-full gap-4">
       <h2
-         class="text-neutral-100 text-center text-3xl font-bold uppercase mb-8"
+         class="text-neutral-100 text-center text-3xl font-bold font-sans uppercase mb-8"
       >
          Sign Up
       </h2>
