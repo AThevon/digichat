@@ -76,7 +76,7 @@
 
 <template>
    <header
-      class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-8"
+      class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-4"
    >
       <img
          src="@/assets/logo.png"

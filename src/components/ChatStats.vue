@@ -72,7 +72,7 @@
          <p class="text-neutral-200">{{ totalParticipants }}</p>
       </div>
       <div class="mt-10">
-         <p class="text-neutral-200 text-center font-bold">Top Chatters</p>
+         <p class="text-neutral-200 text-center font-bold mb-4">Top Chatters</p>
          <ul class="flex flex-col gap-2 mt-4 px-6">
             <li
                v-for="(chatter, index) in bestChatters"
