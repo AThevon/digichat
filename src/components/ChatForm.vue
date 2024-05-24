@@ -46,6 +46,7 @@
                   transaction.set(newMessageRef, {
                      user_first_name: userData.first_name,
                      user_last_name: userData.last_name,
+                     user_photo_url: userData.photo_url,
                      content: this.message,
                      created_at: serverTimestamp(),
                      user_id: user.uid,
@@ -68,10 +69,7 @@
 </script>
 
 <template>
-   <form
-      @submit.prevent="sendMessage"
-      class="flex flex-col w-full mt-5"
-   >
+   <form @submit.prevent="sendMessage" class="flex flex-col w-full mt-5">
       <textarea
          v-model="message"
          placeholder="Type your message here..."

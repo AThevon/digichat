@@ -26,6 +26,7 @@
       },
       methods: {
          async addTodo() {
+          if (!this.todo.label) return;
             try {
                const docRef = await addDoc(collection(db, "to_do"), {
                   label: this.todo.label,
@@ -65,23 +66,22 @@
 </script>
 
 <template>
-   <form
-      @submit.prevent="addTodo"
-      class="flex flex-col gap-2 w-full"
-   >
+   <form @submit.prevent="addTodo" class="flex flex-col gap-2 w-full">
       <label for="label" class="text-neutral-100">Title</label>
       <input
          v-model="todo.label"
+         type="text"
          id="label"
          placeholder="Enter a title"
-         class="text-neutral-200 bg-neutral-800 focus-visible:outline-none rounded-lg p-2"
+         class="text-neutral-200 bg-neutral-800 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
       />
       <label for="description" class="text-neutral-100">Description</label>
       <input
          v-model="todo.description"
          id="description"
+         type="text"
          placeholder="Enter a description"
-         class="text-neutral-200 bg-neutral-800 rounded-lg p-2"
+         class="text-neutral-200 bg-neutral-800 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
       />
       <label for="importance" class="text-neutral-100">Importance</label>
       <div class="grid grid-cols-3 gap-2">
@@ -98,13 +98,17 @@
       <input
          v-model="newSubTask"
          id="subtask"
+         type="text"
          placeholder="Add a subtask"
-         class="text-neutral-200 bg-neutral-800 rounded-lg p-2"
+         class="text-neutral-200 bg-neutral-800 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
       />
       <button
          type="button"
          @click="addSubTask"
-         class="rounded bg-neutral-600 text-neutral-100 uppercase font-normal py-2 px-4 transition-all duration-150 hover:bg-neutral-700 active:scale-95"
+         class="rounded bg-primary-600 text-neutral-100 uppercase font-normal py-2 px-4 transition-all duration-150 hover:bg-neutral-700 active:scale-95"
+         :class="{
+            'cursor-not-allowed hover:bg-neutral-500': !newSubTask,
+         }"
       >
          Add Subtask
       </button>
@@ -127,7 +131,11 @@
       </ul>
 
       <button
-         class="flex items-center justify-center rounded bg-neutral-600 text-neutral-100 uppercase font-normal py-3 px-6 transition-all duration-150 hover:bg-neutral-700 active:scale-95 mt-4"
+         class="flex items-center justify-center rounded bg-primary-600 text-neutral-100 uppercase font-normal py-3 px-6 transition-all duration-150 hover:bg-primary-700 active:scale-95 mt-4"
+         :class="{
+            'cursor-not-allowed hover:!bg-neutral-700': !todo.label,
+         }"
+
       >
          <span class="relative max-w-fit">
             Add Todo
@@ -137,4 +145,5 @@
          </span>
       </button>
    </form>
-</template>../firebase
+</template>
+../firebase

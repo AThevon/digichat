@@ -24,11 +24,11 @@
    <label
       class="flex items-center justify-center cursor-pointer rounded-2xl h-12"
       :class="{
-         'bg-primary-300 text-neutral-800':
+         'bg-green-500 text-neutral-800':
             importanceData === importance && importanceData === 'low',
-         'bg-primary-500 text-neutral-800':
+         'bg-yellow-500 text-neutral-800':
             importanceData === importance && importanceData === 'medium',
-         'bg-primary-700 text-neutral-200':
+         'bg-red-500 text-neutral-200':
             importanceData === importance && importanceData === 'high',
          'bg-neutral-200 text-neutral-800': importanceData !== importance,
       }"

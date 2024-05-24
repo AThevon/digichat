@@ -1,7 +1,8 @@
 <script>
    import { PowerIcon } from "@heroicons/vue/24/solid";
-   import { auth } from "../../firebase";
+   import { auth, db } from "../../firebase";
    import { signOut, onAuthStateChanged } from "firebase/auth";
+   import { doc, getDoc } from "firebase/firestore";
 
    export default {
       components: {
@@ -10,6 +11,7 @@
       data() {
          return {
             isAuthenticated: false,
+            photoURL: "",
             links: [
                {
                   name: "Chat",
@@ -43,14 +45,30 @@
       },
       methods: {
          async logout() {
-            this.$router.push("/login");
             await signOut(auth);
+            this.$router.push("/login");
             this.isAuthenticated = false;
+         },
+         async fetchUserProfilePhoto(userId) {
+            const userDoc = await getDoc(doc(db, "users", userId));
+            if (userDoc.exists()) {
+               const userData = userDoc.data();
+               this.photoURL = userData.photo_url;
+            } else {
+               console.error("User document not found");
+            }
          },
       },
       created() {
          onAuthStateChanged(auth, (user) => {
-            this.isAuthenticated = !!user;
+            if (user) {
+               console.log("User is authenticated");
+               this.isAuthenticated = true;
+               this.fetchUserProfilePhoto(user.uid);
+            } else {
+               console.log("No user is authenticated");
+               this.isAuthenticated = false;
+            }
          });
       },
    };
@@ -58,11 +76,11 @@
 
 <template>
    <header
-      class="fixed text-neutral-100 h-14 w-full flex items-center justify-between px-8"
+      class="fixed text-neutral-100 h-20 w-full flex items-center justify-between px-8"
    >
       <h1 class="text-2xl font-bold">DigiChat</h1>
       <nav>
-         <ul class="flex gap-4">
+         <ul class="flex gap-4 items-center">
             <li v-for="link in filteredLinks" :key="link.name">
                <RouterLink
                   :to="link.path"
@@ -72,13 +90,19 @@
                   {{ link.name }}
                </RouterLink>
             </li>
-            <li v-if="this.isAuthenticated">
+            <li v-if="isAuthenticated" class="flex items-center gap-2">
+               <img
+                  v-if="photoURL"
+                  :src="photoURL"
+                  alt="User Photo"
+                  class="w-10 h-10 rounded-full object-contain"
+               />
                <button
                   @click="logout"
-                  class="group h-6 w-6 bg-neutral-100 rounded-full flex justify-center items-center"
+                  class="group h-10 w-10 bg-neutral-100 hover:bg-red-500 transition-all rounded-full flex justify-center items-center"
                >
                   <PowerIcon
-                     class="size-4 text-neutral-800 group-hover:text-red-400 transition-all"
+                     class="size-4 text-neutral-800 group-hover:text-neutral-50 transition-all"
                   />
                </button>
             </li>

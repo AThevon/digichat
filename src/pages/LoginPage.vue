@@ -41,7 +41,7 @@
          <input
             type="email"
             id="email"
-            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full"
+            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
             placeholder="johndoe@example.com"
             v-model="email"
          />
@@ -51,7 +51,7 @@
          <input
             type="password"
             id="password"
-            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full"
+            class="mb-4 p-2 rounded-lg bg-neutral-800 text-neutral-100 w-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
             placeholder="*******"
             v-model="password"
          />

@@ -31,6 +31,7 @@
                      firstName: data.user_first_name,
                      lastName: data.user_last_name,
                   },
+                  userPhotoUrl: data.user_photo_url,
                   content: data.content,
                   created_at: data.created_at.toDate(),
                };
@@ -68,6 +69,7 @@
          >
             <ChatLine
                :userName="chat.userName"
+               :userPhotoUrl="chat.userPhotoUrl"
                :content="chat.content"
                :created_at="chat.created_at"
             />
